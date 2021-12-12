@@ -312,7 +312,7 @@ rs10 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum_window,
 chart_data10 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum_window, momentum_window=momentum_window,
                                   minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=10, cutoff=cutoff,
                                   port_value=port_value, a_v=added_value)[1]
-chart_data10 = chart_data10.set_index('Date')
+#chart_data10 = chart_data10.set_index('Date')
 st.write(
     f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs10["trades"]} times, every 10 days, and would have a return of {round(rs10["tot_ret"], 2)}% and accumulated {round(rs10["final port_value"], 2)}$')
 st.line_chart(chart_data10['portvalue'])
@@ -324,8 +324,8 @@ rs20 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum_window,
 chart_data20 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum_window, momentum_window=momentum_window,
                                   minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=20, cutoff=cutoff,
                                   port_value=port_value, a_v=added_value)[1]
-x = chart_data20['Date']
-chart_data20 = chart_data20.set_index('Date')
+
+#chart_data20 = chart_data20.set_index('Date')
 st.write(
     f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs20["trades"]} times, every 20 days, and would have a return of {round(rs20["tot_ret"], 2)} % and accumulated {round(rs20["final port_value"], 2)}$')
 st.line_chart(chart_data20['portvalue'])
