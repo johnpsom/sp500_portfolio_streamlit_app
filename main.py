@@ -18,7 +18,7 @@ from io import BytesIO, StringIO
 from typing import Union
 import streamlit as st
 import pandas as pd
-from bokeh.plotting import figure
+
 from pypfopt.efficient_frontier import EfficientFrontier
 from pypfopt.discrete_allocation import DiscreteAllocation
 from pypfopt.risk_models import CovarianceShrinkage
