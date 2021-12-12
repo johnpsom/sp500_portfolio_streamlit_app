@@ -119,7 +119,7 @@ momentum_window = int(best_res.loc[0, 'momentum_window'])
 minimum_momentum = int(best_res.loc[0, 'minimum_momentum'])
 portfolio_size = int(best_res.loc[0, 'portfolio_size'])
 cutoff = best_res.loc[0, 'cutoff']
-tr_period = int(best_res.loc[0, 'tr_period'])
+tr_period =5# int(best_res.loc[0, 'tr_period'])
 # how much cash to add each trading period
 added_value = tr_period*0  # how much cash to add each trading period
 no_tr = 1  # number of trades performed

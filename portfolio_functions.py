@@ -270,7 +270,7 @@ def backtest_portfolio(df, dataset=1000, l_days=700, momentum_window=120, minimu
               'tot_ret': total_ret,
               'drawdown': s.diff().min()[0]}
 
-        return rs, plotted_portval
+        return rs, pval
 
 
 def rebalance_portfolio(df_old, df_new):
