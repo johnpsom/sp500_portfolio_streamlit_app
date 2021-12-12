@@ -90,8 +90,8 @@ for bt in [100]:
     for momentum_window in range(90, 540, 30):
         for minimum_momentum in range(70, 160, 10):
             for portfolio_size in [5, 10, 15, 20]:
-                for tr_period in [5, 10, 20]:
-                    for cutoff in [0.05, 0.1]:
+                for cutoff in [0.01]:
+                    for tr_period in [5, 10, 20]:
                         allocation = {}
                         dataset = bt_days  # start for length of days used for the optimising dataset
                         l_days = dataset-momentum_window  # how many days to use in optimisations
@@ -99,7 +99,7 @@ for bt in [100]:
                         non_trading_cash = 0
                         new_port_value = 0
                         print(bt, momentum_window, minimum_momentum,
-                              portfolio_size, tr_period, cutoff)
+                              portfolio_size, cutoff, tr_period)
                         added_value = tr_period*0
                         rs = backtest_portfolio(df, dataset, l_days, momentum_window, minimum_momentum, portfolio_size,
                                                 tr_period, cutoff, port_value, added_value)
@@ -114,14 +114,14 @@ print(best_res)
 
 '''
 # show the backtest of the best portfolio
-port_value = 10000
+port_value = 50000
 momentum_window = int(best_res.loc[0, 'momentum_window'])
 minimum_momentum = int(best_res.loc[0, 'minimum_momentum'])
 portfolio_size = int(best_res.loc[0, 'portfolio_size'])
 cutoff = best_res.loc[0, 'cutoff']
 tr_period = int(best_res.loc[0, 'tr_period'])
 # how much cash to add each trading period
-added_value = tr_period*10  # how much cash to add each trading period
+added_value = tr_period*0  # how much cash to add each trading period
 no_tr = 1  # number of trades performed
 allocation = {}
 non_trading_cash = 0
@@ -142,7 +142,7 @@ for days in range(dataset, len(df), tr_period):
         # print(allocation)
         if not keep_df_buy:
             #print('Sell date',df_date)
-            for s in tickers_gr:
+            for s in stocks:
                 if s in allocation:
                     new_port_value = new_port_value + \
                         allocation.get(s)*latest_prices.get(s)
@@ -163,7 +163,7 @@ for days in range(dataset, len(df), tr_period):
     df_m = pd.DataFrame()
     m_s = []
     st = []
-    for s in tickers_gr:
+    for s in stocks:
         st.append(s)
         m_s.append(momentum_score(df_tr[s].tail(momentum_window)))
     df_m['stock'] = st
@@ -180,7 +180,7 @@ for days in range(dataset, len(df), tr_period):
     if len(universe) > 2:
         keep_df_buy = False
         df_t = select_columns(df_tr, universe)
-        mu = capm_returns(df_t)
+        mu = capm_return(df_t)
         S = CovarianceShrinkage(df_t).ledoit_wolf()
         # Optimise the portfolio for maximal Sharpe ratio
         ef = EfficientFrontier(mu, S)  # Use regularization (gamma=1)
@@ -275,7 +275,7 @@ df_tr = close_data.tail(l_days)
 df_m = pd.DataFrame()
 m_s = []
 st = []
-for s in tickers_gr:
+for s in stocks:
     st.append(s)
     m_s.append(momentum_score(df_tr[s].tail(momentum_window)))
 df_m['stock'] = st
