@@ -24,7 +24,7 @@ For example 50$ per days means that in a trading period of 20 days you add 1000$
 
 In my git hub repository there is another file which you can get freely which does a brute search for all the combinations of the parameters used for the backtest.
 
-#As stated on the App's Page this is not a trading proposal and what is presented here is for educational and informational purposes only and in no case 
-#the creator of this App can be held responsible for any loss of money by using this App. Each one of us is the only person responsible for our trading decisions.
+**As stated on the App's Page this is not a trading proposal and what is presented here is for educational and informational purposes only and in no case 
+the creator of this App can be held responsible for any loss of money by using this App.** Each one of us is the only person responsible for our trading decisions.
 
 
