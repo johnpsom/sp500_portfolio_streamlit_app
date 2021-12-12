@@ -324,13 +324,3 @@ chart_data20 = chart_data20.set_index('Date')
 st.write(
     f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs20["trades"]} times, every 20 days, and would have a return of {round(rs20["tot_ret"], 2)} % and accumulated {round(rs20["final port_value"], 2)}$')
 st.line_chart(chart_data20['portvalue'])
-
-p = figure(
-    title='Portfolio Value in Time',
-    x_axis_label='Dates',
-    y_axis_label='Portfolio Value')
-
-p.line(x, chart_data20['portvalue'],
-       legend_label='Portfolio Value', line_width=2)
-
-st.bokeh_chart(p, use_container_width=True)
