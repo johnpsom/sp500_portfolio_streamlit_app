@@ -108,28 +108,14 @@ stocks_data = load_data(stocks, start_date, end_date, '1d')
 # create the closing prices dataframe
 l_close = pd.DataFrame(columns=['stock', 'date', 'last_price', 'len_prices'])
 close_data = stocks_data['Adj Close']
-#i = 1
 for ticker in stocks:
     last_close = stocks_data['Adj Close'].iloc[-1][ticker]
     last_date = end_date
     len_values = len(stocks_data)
     l_close = l_close.append({'stock': ticker, 'date': last_date, 'lastprice': last_close,
                               'len_prices': len_values}, ignore_index=True)
-    #df_temp = stocks_data['Adj Close'].loc[:, [ticker]].rename(
-    #    columns={'Adj Close': ticker})
-    #if i == 1:
-        #close_data = df_temp
-    #    i = i + 1
-    #else:
-        #close_data = close_data.merge(df_temp, how='inner', on='Date')
-
-#close_data = close_data.copy()
-#close_data.dropna(how='all', axis=1, inplace=True)
 l_close_min = l_close['len_prices'].min()
 
-best_res = pd.DataFrame(columns=['trades', 'momentum_window', 'minimum_momentum', 'portfolio_size',
-                                 'tr_period', 'cutoff', 'tot_contribution', 'final port_value',
-                                 'cum_prod', 'tot_ret', 'draw_down'])
 df = close_data
 df_tr = df
 
