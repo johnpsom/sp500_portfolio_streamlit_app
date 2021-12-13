@@ -303,7 +303,8 @@ with st.expander("See a line plot of the portfolio value change in time"):
          The chart below  shows the evolution in time of our portfolio.
      """)
     st.line_chart(chart_data5.loc[:, ['portvalue']])
-
+    st.bar_chart(data=chart_data5.loc[:, ['portvalue']], width=0, height=0, use_container_width=True)
+    
 rs10 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum_window, momentum_window=momentum_window,
                           minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=10, cutoff=cutoff,
                           port_value=port_value, a_v=added_value)[0]
