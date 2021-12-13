@@ -195,6 +195,8 @@ def backtest_portfolio(df, dataset=1000, l_days=700, momentum_window=120, minimu
         df_date = datetime.strftime(df.iloc[days, :].name, '%d-%m-%Y')
         if days <= dataset:
             ini_date = df_date
+            plotted_portval.append(round(port_value, 2))
+            plotted_ret.append(0)
         if days > dataset and keep_df_buy is False:
             latest_prices = get_latest_prices(df_tr)
             new_port_value = non_trading_cash
