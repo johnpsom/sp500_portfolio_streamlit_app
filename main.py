@@ -101,8 +101,7 @@ st.markdown('''
 # get current date as end_date
 end_date = datetime.strftime(datetime.now().date(), '%Y-%m-%d')
 # get as start date 1500 days ago
-start_date = datetime.strftime(
-    datetime.now() - timedelta(days=1500), '%Y-%m-%d')
+start_date = datetime.strftime(datetime.now() - timedelta(days=1500), '%Y-%m-%d')
 # Load rows of data into a dataframe.
 stocks = stocks_list()
 stocks_data = load_data(stocks, start_date, end_date, '1d')
@@ -117,10 +116,10 @@ for ticker in stocks:
     l_close = l_close.append({'stock': ticker, 'date': last_date, 'lastprice': last_close,
                               'len_prices': len_values}, ignore_index=True)
     #df_temp = stocks_data['Adj Close'].loc[:, [ticker]].rename(
-        columns={'Adj Close': ticker})
+    #    columns={'Adj Close': ticker})
     #if i == 1:
         #close_data = df_temp
-        i = i + 1
+    #    i = i + 1
     #else:
         #close_data = close_data.merge(df_temp, how='inner', on='Date')
 
