@@ -79,7 +79,7 @@ st.markdown("""
         <a href="https://share.streamlit.io/johnpsom/sp500_portfolio_streamlit_app/main/main.py" target="_blank">HomePage</a>
       </li>
       <li class="nav-item active">
-        <a href="https://medium.com" target="_blank">Article on Medium</a>
+        <a href="https://medium.com/@ioannis.psomiadis/a-streamlit-app-to-create-and-test-portfolios-of-sp500-stocks-956a7b79275" target="_blank">Article on Medium</a>
       </li>
     </ul>
   </div>
@@ -91,8 +91,8 @@ st.markdown('''
 #### **Beware** that this app is created for educational and informational purposes only. 
 #### Stock markets are volatile and there is risk involved and also loss of money.
 #### The creator of this app is in no case responsible of what you do with your money. 
-#### Comments are welcome and accepted in the article's page on [medium.com](https://www.medium.com) or email me at <getyour.portfolio@gmail.com>.
-#### Check article on [medium.com](https://www.medium.com) for instructions and guidance on what this app does and how it works.
+#### Comments are welcome and accepted in the article's page on [medium.com](https://medium.com/@ioannis.psomiadis/a-streamlit-app-to-create-and-test-portfolios-of-sp500-stocks-956a7b79275) or email me at <getyour.portfolio@gmail.com>.
+#### Check article on [medium.com](https://medium.com/@ioannis.psomiadis/a-streamlit-app-to-create-and-test-portfolios-of-sp500-stocks-956a7b79275) for instructions and guidance on what this app does and how it works.
 
 #### Choose values for the parameters in the sidebar accordingly and check out the portfolio
 #### given as result.
