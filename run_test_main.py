@@ -13,9 +13,6 @@ Created on Thu Dec  2 13:42:37 2021
 """
 #import streamlit
 
-
-
-
 import warnings
 import pandas as pd
 import numpy as np
@@ -93,8 +90,8 @@ for bt in [100]:
                 for cutoff in [0.01]:
                     for tr_period in [5, 10, 20]:
                         allocation = {}
-                        dataset = bt_days  # start for length of days used for the optimising dataset
-                        l_days = dataset-momentum_window  # how many days to use in optimisations
+                        dataset = len(df)-bt_days  # start for length of days used for the optimising dataset
+                        l_days = momentum_window  # how many days to use in optimisations
                         port_value = 50000
                         non_trading_cash = 0
                         new_port_value = 0
