@@ -78,8 +78,8 @@ st.markdown("""
       <li class="nav-item active">
         <a class="nav-link disabled" href="#">Home (this page)<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" target="_blank">Link to medium.com article</a>
+      <li class="nav-item active">
+        <a class="nav-link" target="_blank">Link to medium.com article<span class="sr-only"><a href="http://www.google.com" class="external">External</a></span></a>
       </li>
     </ul>
   </div>
