@@ -76,10 +76,10 @@ st.markdown("""
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link disabled" href="#">Home (this page)<span class="sr-only">(current)</span></a>
+        <a href="https://share.streamlit.io/johnpsom/sp500_portfolio_streamlit_app/main/main.py" target="_blank">HomePage</a>
       </li>
       <li class="nav-item active">
-        <a href="http://google.com" target="_blank">Google</a>
+        <a href="https://medium.com" target="_blank">Article on Medium</a>
       </li>
     </ul>
   </div>
