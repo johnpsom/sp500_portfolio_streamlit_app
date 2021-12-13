@@ -298,11 +298,10 @@ chart_data5 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum_
 
 st.write(
     f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs5["trades"]} times, every 5 days, and would have a return of {round(rs5["tot_ret"], 2)} % and accumulated {round(rs5["final port_value"], 2)}$')
-with st.expander("See a line plot of the portfolio value change in time"):
+with st.expander("See a bar plot of the portfolio value change in time"):
     st.write("""
          The chart below  shows the evolution in time of our portfolio.
      """)
-    st.line_chart(chart_data5.loc[:, ['portvalue']])
     st.bar_chart(data=chart_data5.loc[:, ['portvalue']], width=0, height=0, use_container_width=True)
     
 rs10 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum_window, momentum_window=momentum_window,
@@ -314,11 +313,11 @@ chart_data10 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum
 
 st.write(
     f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs10["trades"]} times, every 10 days, and would have a return of {round(rs10["tot_ret"], 2)}% and accumulated {round(rs10["final port_value"], 2)}$')
-with st.expander("See a line plot of the portfolio value change in time"):
+with st.expander("See a bar plot of the portfolio value change in time"):
     st.write("""
-         The chart below  shows the evolution in time of our portfolio.
+         The chart below shows the evolution in time of our portfolio.
      """)
-    st.line_chart(chart_data10.loc[:, ['portvalue']])
+    st.bar_chart(data=chart_data10.loc[:, ['portvalue']], width=0, height=0, use_container_width=True)
 
 rs20 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum_window, momentum_window=momentum_window,
                           minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=20, cutoff=cutoff,
@@ -329,8 +328,8 @@ chart_data20 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum
 
 st.write(
     f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs20["trades"]} times, every 20 days, and would have a return of {round(rs20["tot_ret"], 2)} % and accumulated {round(rs20["final port_value"], 2)}$')
-with st.expander("See a line plot of the portfolio value change in time"):
+with st.expander("See a bar plot of the portfolio value change in time"):
     st.write("""
          The chart below  shows the evolution in time of our portfolio.
      """)
-    st.line_chart(chart_data20.loc[:, ['portvalue']])
+    st.bar_chart(data=chart_data20.loc[:, ['portvalue']], width=0, height=0, use_container_width=True)
