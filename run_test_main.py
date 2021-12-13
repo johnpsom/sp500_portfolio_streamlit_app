@@ -70,27 +70,30 @@ l_close_min = l_close['len_prices'].min()
 port_value = 10000
 new_port_value = 0
 df = close_data
-#momentum_window = v
-#minimum_momentum = 70
+# momentum_window = v
+# minimum_momentum = 70
 # portfolio_size=15
 # cutoff=0.1
 # how much cash to add each trading period
-# tr_period=21 #trading period, 21 is a month,10 in a fortnite, 5 is a week, 1 is everyday
+# tr_period=20 #trading period, 20 is a month,10 in a fortnight, 5 is a week, 1 is everyday
 # dataset=800 #start for length of days used for the optimising dataset
 # l_days=600  #how many days to use in optimisations
 res = pd.DataFrame(columns=['trades', 'momentum_window', 'minimum_momentum', 'portfolio_size',
                             'tr_period', 'cutoff', 'tot_contribution', 'final port_value',
                             'cumprod', 'tot_ret', 'drawdown'])
-# total backtests 4*5*4*3*2=480
-for bt in [100]:
+
+for bt in [100]: 
+    #it doesn't matter if you add more days in the backtest since we re looking for a set of 
+    #parameters that give a max positive return during the backtest and want to retain this behaviour
+    #for a little longer and equally to the trading period.
     bt_days = l_close_min-bt
-    for momentum_window in range(90, 540, 30):
-        for minimum_momentum in range(70, 160, 10):
-            for portfolio_size in [5, 10, 15, 20]:
-                for cutoff in [0.01]:
+    for momentum_window in range(90, 510, 10):
+        for minimum_momentum in range(70, 190, 10):
+            for portfolio_size in range(5,55,5):
+                for cutoff in range(0.01,0.2,0.01):
                     for tr_period in [5, 10, 20]:
                         allocation = {}
-                        dataset = len(df)-bt_days  # start for length of days used for the optimising dataset
+                        dataset = bt_days  # start for length of days used for the backtesting
                         l_days = momentum_window  # how many days to use in optimisations
                         port_value = 50000
                         non_trading_cash = 0
@@ -109,14 +112,14 @@ print(res.sort_values(by=['drawdown']).head(20))
 best_res = res.sort_values(by=['tot_ret']).tail(1).reset_index(drop=True)
 print(best_res)
 
-'''
+
 # show the backtest of the best portfolio
 port_value = 50000
 momentum_window = int(best_res.loc[0, 'momentum_window'])
 minimum_momentum = int(best_res.loc[0, 'minimum_momentum'])
 portfolio_size = int(best_res.loc[0, 'portfolio_size'])
 cutoff = best_res.loc[0, 'cutoff']
-tr_period =5# int(best_res.loc[0, 'tr_period'])
+tr_period = int(best_res.loc[0, 'tr_period'])
 # how much cash to add each trading period
 added_value = tr_period*0  # how much cash to add each trading period
 no_tr = 1  # number of trades performed
