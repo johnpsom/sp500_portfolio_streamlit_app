@@ -273,11 +273,11 @@ st.markdown('''**Below you see a backtest for the portfolio with the chosen para
                fortnight (10 days) and month (20 days) in the last Y days you chose in the sidebar.**''')
 bt_days = l_close_min - history_bt
 
-rs5 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum_window, momentum_window=momentum_window,
+rs5 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, momentum_window=momentum_window,
                          minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=5, cutoff=cutoff,
                          port_value=port_value, a_v=added_value)[0]
 
-chart_data5 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum_window, momentum_window=momentum_window,
+chart_data5 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, momentum_window=momentum_window,
                                  minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=5, cutoff=cutoff,
                                  port_value=port_value, a_v=added_value)[1]
 
@@ -289,10 +289,10 @@ with st.expander("See a bar plot of the portfolio value change in time"):
      """)
     st.bar_chart(data=chart_data5.loc[:, ['portvalue']], width=0, height=0, use_container_width=True)
     
-rs10 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum_window, momentum_window=momentum_window,
+rs10 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, momentum_window=momentum_window,
                           minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=10, cutoff=cutoff,
                           port_value=port_value, a_v=added_value)[0]
-chart_data10 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum_window, momentum_window=momentum_window,
+chart_data10 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, momentum_window=momentum_window,
                                   minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=10, cutoff=cutoff,
                                   port_value=port_value, a_v=added_value)[1]
 
@@ -304,10 +304,10 @@ with st.expander("See a bar plot of the portfolio value change in time"):
      """)
     st.bar_chart(data=chart_data10.loc[:, ['portvalue']], width=0, height=0, use_container_width=True)
 
-rs20 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum_window, momentum_window=momentum_window,
+rs20 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, momentum_window=momentum_window,
                           minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=20, cutoff=cutoff,
                           port_value=port_value, a_v=added_value)[0]
-chart_data20 = backtest_portfolio(df, dataset=bt_days, l_days=bt_days - momentum_window, momentum_window=momentum_window,
+chart_data20 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, momentum_window=momentum_window,
                                   minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=20, cutoff=cutoff,
                                   port_value=port_value, a_v=added_value)[1]
 
