@@ -282,7 +282,7 @@ chart_data5 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, mo
                                  port_value=port_value, a_v=added_value)[1]
 
 st.write(
-    f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs5["trades"]} times, every 5 days, and would have a return of {round(rs5["tot_ret"], 2)} % and accumulated {round(rs5["final port_value"], 2)}$')
+    f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs5["trades"]-1} times, every 5 days, and would have a return of {round(rs5["tot_ret"], 2)} % and accumulated {round(rs5["final port_value"], 2)}$')
 with st.expander("See a bar plot of the portfolio value change in time"):
     st.write("""
          The chart below  shows the evolution in time of our portfolio.
@@ -297,7 +297,7 @@ chart_data10 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, m
                                   port_value=port_value, a_v=added_value)[1]
 
 st.write(
-    f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs10["trades"]} times, every 10 days, and would have a return of {round(rs10["tot_ret"], 2)}% and accumulated {round(rs10["final port_value"], 2)}$')
+    f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs10["trades"]-1} times, every 10 days, and would have a return of {round(rs10["tot_ret"], 2)}% and accumulated {round(rs10["final port_value"], 2)}$')
 with st.expander("See a bar plot of the portfolio value change in time"):
     st.write("""
          The chart below shows the evolution in time of our portfolio.
@@ -312,7 +312,7 @@ chart_data20 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, m
                                   port_value=port_value, a_v=added_value)[1]
 
 st.write(
-    f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs20["trades"]} times, every 20 days, and would have a return of {round(rs20["tot_ret"], 2)} % and accumulated {round(rs20["final port_value"], 2)}$')
+    f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs20["trades"]-1} times, every 20 days, and would have a return of {round(rs20["tot_ret"], 2)} % and accumulated {round(rs20["final port_value"], 2)}$')
 with st.expander("See a bar plot of the portfolio value change in time"):
     st.write("""
          The chart below  shows the evolution in time of our portfolio.
