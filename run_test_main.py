@@ -13,6 +13,9 @@ Created on Thu Dec  2 13:42:37 2021
 """
 #import streamlit
 
+
+
+
 import warnings
 import pandas as pd
 import numpy as np
@@ -82,15 +85,15 @@ res = pd.DataFrame(columns=['trades', 'momentum_window', 'minimum_momentum', 'po
                             'tr_period', 'cutoff', 'tot_contribution', 'final port_value',
                             'cumprod', 'tot_ret', 'drawdown'])
 
-for bt in [100]: 
-    #it doesn't matter if you add more days in the backtest since we re looking for a set of 
-    #parameters that give a max positive return during the backtest and want to retain this behaviour
-    #for a little longer and equally to the trading period.
+for bt in [100]:
+    # it doesn't matter if you add more days in the backtest since we re looking for a set of
+    # parameters that give a max positive return during the backtest and want to retain this behaviour
+    # for a little longer and equally to the trading period.
     bt_days = l_close_min-bt
     for momentum_window in range(90, 510, 10):
         for minimum_momentum in range(70, 190, 10):
-            for portfolio_size in range(5,55,5):
-                for cutoff in range(0.01,0.2,0.01):
+            for portfolio_size in range(5, 55, 5):
+                for cutoff in range(0.01, 0.2, 0.01):
                     for tr_period in [5, 10, 20]:
                         allocation = {}
                         dataset = bt_days  # start for length of days used for the backtesting
@@ -355,4 +358,3 @@ print(df_buy['value'].sum())
 
 # rebalance with old portfolio
 rebalance_portfolio(df_old, df_buy)
-'''
