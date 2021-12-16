@@ -138,7 +138,7 @@ def get_portfolio(universe, df_tr, port_value, cutoff, df_m):
     prices from df_tr with a given portfolio value and a weight cutoff value
     using the value of a momemntum indicator to limit the quantity of the stocks'''
     df_t = select_columns(df_tr, universe)
-    mu = capm_returns(df_t)
+    mu = capm_return(df_t)
     S = CovarianceShrinkage(df_t).ledoit_wolf()
     # Optimize the portfolio for min volatility
     ef = EfficientFrontier(mu, S)  # Use regularization (gamma=1)
