@@ -4,3 +4,4 @@ PyPortfolioOpt
 scikit-learn
 yahoo_fin
 yfinance
+matplotlib
