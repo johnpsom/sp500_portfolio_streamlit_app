@@ -94,8 +94,7 @@ st.markdown('''
 #### Comments are welcome and accepted in the article's page on [medium.com](https://medium.com/@ioannis.psomiadis/a-streamlit-app-to-create-and-test-portfolios-of-sp500-stocks-956a7b79275) or email me at <getyour.portfolio@gmail.com>.
 #### Check article on [medium.com](https://medium.com/@ioannis.psomiadis/a-streamlit-app-to-create-and-test-portfolios-of-sp500-stocks-956a7b79275) for instructions and guidance on what this app does and how it works.
 
-#### Choose values for the parameters in the sidebar accordingly and check out the portfolio
-#### given as result.
+#### Choose values for the parameters in the sidebar accordingly and check out the portfolio given as result.
 ''')
 
 # get current date as end_date
