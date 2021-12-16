@@ -58,7 +58,7 @@ def get_latest_prices(prices):
     return prices.ffill().iloc[-1]
 
 
-def capm_returns(prices, market_prices=None, returns_data=False, risk_free_rate=0.02, compounding=True, frequency=252):
+def capm_return(prices, market_prices=None, returns_data=False, risk_free_rate=0.02, compounding=True, frequency=252):
     """
     Compute a return estimate using the Capital Asset Pricing Model. Under the CAPM,
     asset returns are equal to market returns plus a :math:`\beta` term encoding
