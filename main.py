@@ -217,58 +217,6 @@ st.write('On the above dataframe we see in the "weights" column the percentage o
 st.write('In the "shares" columns the number of shares we allocate, at what "price" be bought them and ')
 st.write('the total "value" of money allocated on each stock')
 
-st.write(
-    'If you want to keep this portfolio you can download it as a csv file by ging a name and pressing the Save button')
-file_name = st.text_input(
-    'Name your portfolio and press the button below to save it', value="My Portfolio", key=1)
-if st.button('Save this Portfolio', key=1):
-    file_name = file_name + '.csv'
-    download_button_str = download_button(
-        df_buy, file_name, f'Click here to download {file_name}', pickle_it=False)
-    st.markdown(download_button_str, unsafe_allow_html=True)
-
-st.subheader(
-    'If you have previoulsy used this App and you have downloaded a Portfolio upload it to see its performance today.')
-st.markdown(STYLE, unsafe_allow_html=True)
-file = st.file_uploader(
-    "Drag and drop hear your Portfolio (*.csv)", type='csv')
-show_file = st.empty()
-if not file:
-    show_file.info("")
-else:
-    df_old = pd.read_csv(file)
-    df_old = df_old.rename(columns={'price': 'bought price'})
-    last_price = []
-    new_values = []
-    new_weights = []
-    pct = []
-    for stock in list(df_old.iloc[:-1]['stock']):
-        last_price.append(df.iloc[-1][stock])
-        nv = df_old.loc[df_old['stock'] == stock,
-                        'shares'].values[0] * df.iloc[-1][stock]
-        new_values.append(nv)
-        pt = round(100 * (df.iloc[-1][stock] / df_old.loc[df_old['stock']
-                   == stock, 'bought price'].values[0] - 1), 2)
-        pct.append(pt)
-    last_price.append(0)
-    pct.append(0)
-    df_old['last price'] = last_price
-    new_values.append(df_old.iloc[-1]['value'])
-    df_old['new value'] = new_values
-    df_old['pct_change%'] = pct
-    new_port_value = df_old['new value'].sum()
-    for stock in list(df_old.iloc[:-1]['stock']):
-        new_weights.append(
-            df_old.loc[df_old['stock'] == stock, 'shares'].values[0] * df.iloc[-1][stock] / new_port_value)
-    new_weights.append(df_old.iloc[-1]['new value'] / new_port_value)
-    df_old['new weights'] = new_weights
-    st.write(f'Portfolio initial value was :{df_old["value"].sum()}$')
-    st.write(f'And now it is : {round(new_port_value, 2)} €')
-    st.write(
-        f'with a return of {100 * round(new_port_value / df_old["value"].sum() - 1, 2)}%')
-    st.dataframe(df_old)
-    file.close()
-    rebalance_portfolio(df_old, df_buy)
 
 st.markdown('''**Below you see a backtest for the portfolio with the chosen parameters if we rebalanced it every week (5 days),
                fortnight (10 days) and month (20 days) in the last Y days you chose in the sidebar.**''')
@@ -322,3 +270,56 @@ with st.expander("See a bar plot of the portfolio value change in time"):
      """)
     st.bar_chart(data=chart_data20.loc[:, [
                  'portvalue']], width=0, height=0, use_container_width=True)
+
+st.write(
+    'If you want to keep this portfolio you can download it as a csv file by ging a name and pressing the Save button')
+file_name = st.text_input(
+    'Name your portfolio and press the button below to save it', value="My Portfolio", key=1)
+if st.button('Save this Portfolio', key=1):
+    file_name = file_name + '.csv'
+    download_button_str = download_button(
+        df_buy, file_name, f'Click here to download {file_name}', pickle_it=False)
+    st.markdown(download_button_str, unsafe_allow_html=True)
+
+st.subheader(
+    'If you have previoulsy used this App and you have downloaded a Portfolio upload it to see its performance today.')
+st.markdown(STYLE, unsafe_allow_html=True)
+file = st.file_uploader(
+    "Drag and drop hear your Portfolio (*.csv)", type='csv')
+show_file = st.empty()
+if not file:
+    show_file.info("")
+else:
+    df_old = pd.read_csv(file)
+    df_old = df_old.rename(columns={'price': 'bought price'})
+    last_price = []
+    new_values = []
+    new_weights = []
+    pct = []
+    for stock in list(df_old.iloc[:-1]['stock']):
+        last_price.append(df.iloc[-1][stock])
+        nv = df_old.loc[df_old['stock'] == stock,
+                        'shares'].values[0] * df.iloc[-1][stock]
+        new_values.append(nv)
+        pt = round(100 * (df.iloc[-1][stock] / df_old.loc[df_old['stock']
+                   == stock, 'bought price'].values[0] - 1), 2)
+        pct.append(pt)
+    last_price.append(0)
+    pct.append(0)
+    df_old['last price'] = last_price
+    new_values.append(df_old.iloc[-1]['value'])
+    df_old['new value'] = new_values
+    df_old['pct_change%'] = pct
+    new_port_value = df_old['new value'].sum()
+    for stock in list(df_old.iloc[:-1]['stock']):
+        new_weights.append(
+            df_old.loc[df_old['stock'] == stock, 'shares'].values[0] * df.iloc[-1][stock] / new_port_value)
+    new_weights.append(df_old.iloc[-1]['new value'] / new_port_value)
+    df_old['new weights'] = new_weights
+    st.write(f'Portfolio initial value was :{df_old["value"].sum()}$')
+    st.write(f'And now it is : {round(new_port_value, 2)} €')
+    st.write(
+        f'with a return of {100 * round(new_port_value / df_old["value"].sum() - 1, 2)}%')
+    st.dataframe(df_old)
+    file.close()
+    rebalance_portfolio(df_old, df_buy)

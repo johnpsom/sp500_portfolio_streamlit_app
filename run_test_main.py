@@ -91,7 +91,7 @@ for backtest_days in [100]:
                 for trading_period in [5, 10, 20]:
                     for cutoff in range(1, 21):
                         cutoff /= 100
-                        portfolio_value = 10000
+                        portfolio_value = 50000
                         backtest_dataset = len(df_bt)-backtest_days
                         lookback_days = momentum_window
                         added_value = trading_period*0
@@ -113,11 +113,11 @@ best_backtest_result = backtest_results.sort_values(
 print(best_backtest_result)
 
 # validate the best of the best portfolio
-portfolio_value = 10000
+portfolio_value = 50000
 momentum_window = int(best_backtest_result.loc[0, 'momentum_window'])
 minimum_momentum = int(best_backtest_result.loc[0, 'minimum_momentum'])
 portfolio_size = int(best_backtest_result.loc[0, 'portfolio_size'])
-cutoff = int(best_backtest_result.loc[0, 'cutoff'])
+cutoff = (best_backtest_result.loc[0, 'cutoff'])
 trading_period = int(best_backtest_result.loc[0, 'tr_period'])
 validation_dataset = len(df_vld)-backtest_days
 lookback_days = momentum_window

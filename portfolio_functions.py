@@ -11,10 +11,11 @@ from datetime import datetime
 import pandas as pd
 import numpy as np
 from scipy import stats
+import matplotlib.pyplot as plt
 from pypfopt.efficient_frontier import EfficientFrontier
 from pypfopt.discrete_allocation import DiscreteAllocation
 from pypfopt.risk_models import CovarianceShrinkage
-from stocks import stocks_list, download_from_yahoo
+from stocks import stocks_list
 import io
 import base64
 import json
