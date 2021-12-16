@@ -273,13 +273,13 @@ st.markdown('''**Below you see a backtest for the portfolio with the chosen para
                fortnight (10 days) and month (20 days) in the last Y days you chose in the sidebar.**''')
 bt_days = l_close_min - history_bt
 
-rs5 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, momentum_window=momentum_window,
+rs5 = backtest_portfolio(df, bt_dataset=bt_days, lookback_days=momentum_window, momentum_window=momentum_window,
                          minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=5, cutoff=cutoff,
                          port_value=port_value, a_v=added_value)[0]
 
-chart_data5 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, momentum_window=momentum_window,
-                                 minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=5, cutoff=cutoff,
-                                 port_value=port_value, a_v=added_value)[1]
+chart_data5 = backtest_portfolio(df, bt_dataset=bt_days, lookback_days=momentum_window, momentum_window=momentum_window,
+                         minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=5, cutoff=cutoff,
+                         port_value=port_value, a_v=added_value)[1]
 
 st.write(
     f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs5["trades"]-1} times, every 5 days, and would have a return of {round(rs5["tot_ret"], 2)} % and accumulated {round(rs5["final port_value"], 2)}$')
@@ -289,12 +289,12 @@ with st.expander("See a bar plot of the portfolio value change in time"):
      """)
     st.bar_chart(data=chart_data5.loc[:, ['portvalue']], width=0, height=0, use_container_width=True)
     
-rs10 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, momentum_window=momentum_window,
-                          minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=10, cutoff=cutoff,
-                          port_value=port_value, a_v=added_value)[0]
-chart_data10 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, momentum_window=momentum_window,
-                                  minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=10, cutoff=cutoff,
-                                  port_value=port_value, a_v=added_value)[1]
+rs10 = backtest_portfolio(df, bt_dataset=bt_days, lookback_days=momentum_window, momentum_window=momentum_window,
+                         minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=10, cutoff=cutoff,
+                         port_value=port_value, a_v=added_value)[0]
+chart_data10 = backtest_portfolio(df, bt_dataset=bt_days, lookback_days=momentum_window, momentum_window=momentum_window,
+                         minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=10, cutoff=cutoff,
+                         port_value=port_value, a_v=added_value)[1]
 
 st.write(
     f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs10["trades"]-1} times, every 10 days, and would have a return of {round(rs10["tot_ret"], 2)}% and accumulated {round(rs10["final port_value"], 2)}$')
@@ -304,12 +304,12 @@ with st.expander("See a bar plot of the portfolio value change in time"):
      """)
     st.bar_chart(data=chart_data10.loc[:, ['portvalue']], width=0, height=0, use_container_width=True)
 
-rs20 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, momentum_window=momentum_window,
-                          minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=20, cutoff=cutoff,
-                          port_value=port_value, a_v=added_value)[0]
-chart_data20 = backtest_portfolio(df, dataset=bt_days, l_days=momentum_window, momentum_window=momentum_window,
-                                  minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=20, cutoff=cutoff,
-                                  port_value=port_value, a_v=added_value)[1]
+rs20 = backtest_portfolio(df, bt_dataset=bt_days, lookback_days=momentum_window, momentum_window=momentum_window,
+                         minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=20, cutoff=cutoff,
+                         port_value=port_value, a_v=added_value)[0]
+chart_data20 = backtest_portfolio(df, bt_dataset=bt_days, lookback_days=momentum_window, momentum_window=momentum_window,
+                         minimum_momentum=minimum_momentum, portfolio_size=portfolio_size, tr_period=20, cutoff=cutoff,
+                         port_value=port_value, a_v=added_value)[1]
 
 st.write(
     f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs20["trades"]-1} times, every 20 days, and would have a return of {round(rs20["tot_ret"], 2)} % and accumulated {round(rs20["final port_value"], 2)}$')
