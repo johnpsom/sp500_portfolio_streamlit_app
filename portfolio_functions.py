@@ -300,7 +300,7 @@ def backtest_portfolio(prices_df, bt_dataset=800, lookback_days=700, momentum_wi
         df_m = pd.DataFrame()
         m_s = []
         st = []
-        for s in stocks:
+        for s in stocks_list:
             st.append(s)
             m_s.append(momentum_score(df_tr[s].tail(momentum_window)))
         df_m['stock'] = st
@@ -394,7 +394,7 @@ def backtest_portfolio2(prices_df, bt_dataset=800, lookback_days=700, momentum_w
         df_m = pd.DataFrame()
         m_s = []
         st = []
-        for s in stocks:
+        for s in stocks_list:
             st.append(s)
             m_s.append(momentum_score(df_tr[s].tail(momentum_window)))
         df_m['stock'] = st
