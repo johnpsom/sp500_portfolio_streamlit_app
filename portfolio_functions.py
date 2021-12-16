@@ -14,7 +14,7 @@ from scipy import stats
 from pypfopt.efficient_frontier import EfficientFrontier
 from pypfopt.discrete_allocation import DiscreteAllocation
 from pypfopt.risk_models import CovarianceShrinkage
-from stocks import stocks
+from stocks import stocks_list, download_from_yahoo
 import io
 import base64
 import json
