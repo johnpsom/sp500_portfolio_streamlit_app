@@ -5,16 +5,6 @@ Created on Sun Dec 12 10:49:58 2021
 @author: johnpsom
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Dec  2 13:42:37 2021
-
-@author: IOANNIS PSOMIADIS
-"""
-#import streamlit
-
-
-
 
 import warnings
 import pandas as pd
@@ -23,8 +13,10 @@ from datetime import datetime
 from datetime import timedelta
 from stocks import stocks_list, download_from_yahoo
 from portfolio_functions import momentum_score, get_latest_prices
-from portfolio_functions import  backtest_portfolio, get_portfolio
+from portfolio_functions import backtest_portfolio, get_portfolio
 from portfolio_functions import rebalance_portfolio, backtest_portfolio2
+
+
 def load_data(tickers_sp500, start, end, interval='1d'):
     return download_from_yahoo(tickers_sp500, start, end, '1d')
 
@@ -354,17 +346,6 @@ Created on Thu Dec  2 13:42:37 2021
 #import streamlit
 
 
-
-
-import warnings
-import pandas as pd
-import matplotlib.pyplot as plt
-from datetime import datetime
-from datetime import timedelta
-from stocks import stocks_list, download_from_yahoo
-from portfolio_functions import momentum_score, get_latest_prices
-from portfolio_functions import  backtest_portfolio, get_portfolio
-from portfolio_functions import rebalance_portfolio, backtest_portfolio2
 def load_data(tickers_sp500, start, end, interval='1d'):
     return download_from_yahoo(tickers_sp500, start, end, '1d')
 
