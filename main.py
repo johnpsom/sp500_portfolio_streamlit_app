@@ -76,7 +76,7 @@ st.markdown("""
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a href="https://share.streamlit.io/johnpsom/sp500_portfolio_streamlit_app/main/main.py" target="_blank">HomePage</a>
+        <a href="https://github.com/johnpsom/sp500_portfolio_streamlit_app" target="_blank">Github Repo</a>
       </li>
       <li class="nav-item active">
         <a href="https://medium.com/@ioannis.psomiadis/a-streamlit-app-to-create-and-test-portfolios-of-sp500-stocks-956a7b79275" target="_blank">Article on Medium</a>
