@@ -103,7 +103,7 @@ for backtest_days in [100]:
                         backtest_results = backtest_results.append(
                             bt_result, ignore_index=True)
                         print(bt_result)
-                        plt.plot(plotted_portval)
+                        plt.plot(plotted_portval['portvalue'])
                         print(backtest_results.sort_values(
                             by=['tot_ret']).tail(2))
 
