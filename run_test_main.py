@@ -67,7 +67,7 @@ backtest_results = pd.DataFrame(columns=['trades', 'momentum_window',
                                          'final port_value',
                                          'cumprod', 'tot_ret', 'drawdown'])
 
-# backtest on the 90% of our dataset
+# backtest on the whole dataset
 x = int(0.9*l_close_min)
 # .head(x)  # backtest dataframe of first x values from total prices
 df_bt = df
@@ -79,7 +79,7 @@ for backtest_days in [200]:
     # parameters that give a max positive return during the backtest and want to retain this behaviour
     # for a little longer and equally to the trading period.
     for momentum_window in range(90, 510, 30):
-        for minimum_momentum in range(70, 190, 30):
+        for minimum_momentum in range(70, 190, 10):
             for portfolio_size in range(5, 25, 5):
                 for trading_period in [5, 10, 20]:
                     for cutoff in [1, 5, 10, 15]:
@@ -100,7 +100,10 @@ for backtest_days in [200]:
                         print(backtest_results.sort_values(
                             by=['tot_ret']).tail(2))
 
+print('The following are the 10 best backtests based on return')
 print(backtest_results.sort_values(by=['tot_ret']).tail(10))
+print('The following are the 10 best backtests based on drawdown')
+print(backtest_results.sort_values(by=['drawdown']).tail(10))
 best_backtest_result = backtest_results.sort_values(
     by=['tot_ret']).tail(1).reset_index(drop=True)
 print(best_backtest_result)

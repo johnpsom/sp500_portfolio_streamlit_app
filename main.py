@@ -124,13 +124,13 @@ st.sidebar.write('Portfolio Parameters')
 port_value = st.sidebar.slider(
     'Initial Capital to invest $', 10000, 100000, 50000, 5000)
 momentum_window = st.sidebar.slider(
-    'Number of days to use to calculate our momentum indicator.', 90, 500, 150, 10)
+    'Number of days to use to calculate our momentum indicator.', 90, 510, 150, 30)
 minimum_momentum = st.sidebar.slider(
     'Minimum value of the momentum indicator so that a stock can be included in our portfolio.', 70, 180, 160, 10)
 portfolio_size = st.sidebar.slider(
-    'Maximum Portfolio Size No of stocks.', 5, 50, 5, 1)
+    'Maximum Portfolio Size No of stocks.', 5, 20, 5, 5)
 cutoff = st.sidebar.slider(
-    'Minimum weight of a stock in our portfolio.', 0.01, 0.20, 0.10, 0.01)
+    'Minimum weight of a stock in our portfolio.', 0.01, 0.15, 0.10, 0.05)
 history_bt = st.sidebar.slider(
     'Days of backtesting our Portfolio (Υ days).', 100, 400, 200, 100)
 added_value = st.sidebar.slider(
