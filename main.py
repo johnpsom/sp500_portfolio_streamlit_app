@@ -217,6 +217,16 @@ st.write('On the above dataframe we see in the "weights" column the percentage o
 st.write('In the "shares" columns the number of shares we allocate, at what "price" be bought them and ')
 st.write('the total "value" of money allocated on each stock')
 
+if st.button('Click Here and Save this Portfolio', key=1):
+    st.write(
+        'If you want to keep this portfolio you can download it as a csv file by giving it a name and pressing the Save button')
+    file_name = st.text_input(
+        'Name your portfolio and press the button below to save it', value="My Portfolio", key=1)
+    file_name = file_name + '.csv'
+    download_button_str = download_button(
+        df_buy, file_name, f'Click here to download {file_name}', pickle_it=False)
+    st.markdown(download_button_str, unsafe_allow_html=True)
+
 
 st.markdown('''**Below you see a backtest for the portfolio with the chosen parameters if we rebalanced it every week (5 days),
                fortnight (10 days) and month (20 days) in the last Y days you chose in the sidebar.**''')
@@ -270,17 +280,6 @@ with st.expander("See a bar plot of the portfolio's value change in time"):
      """)
     st.bar_chart(data=chart_data20.loc[:, [
                  'portvalue']], width=0, height=0, use_container_width=True)
-
-
-if st.button('Click Here and Save this Portfolio', key=1):
-    st.write(
-        'If you want to keep this portfolio you can download it as a csv file by giving it a name and pressing the Save button')
-    file_name = st.text_input(
-        'Name your portfolio and press the button below to save it', value="My Portfolio", key=1)
-    file_name = file_name + '.csv'
-    download_button_str = download_button(
-        df_buy, file_name, f'Click here to download {file_name}', pickle_it=False)
-    st.markdown(download_button_str, unsafe_allow_html=True)
 
 st.subheader(
     'If you have previoulsy used this App and you have downloaded a Portfolio upload it to see its performance today.')
