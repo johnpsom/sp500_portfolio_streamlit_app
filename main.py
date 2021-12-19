@@ -69,7 +69,7 @@ st.markdown(
     unsafe_allow_html=True)
 st.markdown("""
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #CE2B08;">
-  <a class="navbar-brand" target="_blank">getyour.Portfolio@gmail.com</a>
+  <a class="navbar-brand" target="_blank"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -91,7 +91,7 @@ st.markdown('''
 #### **Beware** that this app is created for educational and informational purposes only. 
 #### Stock markets are volatile and there is risk involved and also loss of money.
 #### The creator of this app is in no case responsible of what you do with your money. 
-#### Comments are welcome and accepted in the article's page on [medium.com](https://medium.com/@ioannis.psomiadis/a-streamlit-app-to-create-and-test-portfolios-of-sp500-stocks-956a7b79275) or email me at <getyour.portfolio@gmail.com>.
+#### Comments are welcome and accepted in the article's page on [medium.com](https://medium.com/@ioannis.psomiadis/a-streamlit-app-to-create-and-test-portfolios-of-sp500-stocks-956a7b79275).
 #### Check article on [medium.com](https://medium.com/@ioannis.psomiadis/a-streamlit-app-to-create-and-test-portfolios-of-sp500-stocks-956a7b79275) for instructions and guidance on what this app does and how it works.
 
 #### Choose values for the parameters in the sidebar accordingly and check out the portfolio given as result.
@@ -232,7 +232,7 @@ chart_data5 = backtest_portfolio(df, bt_dataset=bt_days, lookback_days=momentum_
 
 st.write(
     f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs5["trades"]} times, every 5 days, and would have a return of {round(rs5["tot_ret"], 2)} % and accumulated {round(rs5["final port_value"], 2)}$ with a drawdown {round(rs5["drawdown"], 2)}%')
-with st.expander("See a bar plot of the portfolio value change in time"):
+with st.expander("See a bar plot of the portfolio's value change in time"):
     st.write("""
          The chart below  shows the evolution in time of our portfolio.
      """)
@@ -248,7 +248,7 @@ chart_data10 = backtest_portfolio(df, bt_dataset=bt_days, lookback_days=momentum
 
 st.write(
     f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs10["trades"]} times, every 10 days, and would have a return of {round(rs10["tot_ret"], 2)}% and accumulated {round(rs10["final port_value"], 2)}$ with a drawdown {round(rs10["drawdown"], 2)}%')
-with st.expander("See a bar plot of the portfolio value change in time"):
+with st.expander("See a bar plot of the portfolio's value change in time"):
     st.write("""
          The chart below shows the evolution in time of our portfolio.
      """)
@@ -264,7 +264,7 @@ chart_data20 = backtest_portfolio(df, bt_dataset=bt_days, lookback_days=momentum
 
 st.write(
     f'With an initial investment of "{port_value} dollars", we would have rebalanced {rs20["trades"]} times, every 20 days, and would have a return of {round(rs20["tot_ret"], 2)} % and accumulated {round(rs20["final port_value"], 2)}$ with a drawdown {round(rs20["drawdown"], 2)}%')
-with st.expander("See a bar plot of the portfolio value change in time"):
+with st.expander("See a bar plot of the portfolio's value change in time"):
     st.write("""
          The chart below  shows the evolution in time of our portfolio.
      """)
