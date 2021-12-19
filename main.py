@@ -272,7 +272,7 @@ with st.expander("See a bar plot of the portfolio's value change in time"):
                  'portvalue']], width=0, height=0, use_container_width=True)
 
 
-if st.button('Save this Portfolio', key=1):
+if st.button('Click Here and Save this Portfolio', key=1):
     st.write(
         'If you want to keep this portfolio you can download it as a csv file by giving it a name and pressing the Save button')
     file_name = st.text_input(
