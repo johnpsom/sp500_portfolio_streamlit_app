@@ -271,11 +271,12 @@ with st.expander("See a bar plot of the portfolio's value change in time"):
     st.bar_chart(data=chart_data20.loc[:, [
                  'portvalue']], width=0, height=0, use_container_width=True)
 
-st.write(
-    'If you want to keep this portfolio you can download it as a csv file by ging a name and pressing the Save button')
-file_name = st.text_input(
-    'Name your portfolio and press the button below to save it', value="My Portfolio", key=1)
+
 if st.button('Save this Portfolio', key=1):
+    st.write(
+        'If you want to keep this portfolio you can download it as a csv file by giving it a name and pressing the Save button')
+    file_name = st.text_input(
+        'Name your portfolio and press the button below to save it', value="My Portfolio", key=1)
     file_name = file_name + '.csv'
     download_button_str = download_button(
         df_buy, file_name, f'Click here to download {file_name}', pickle_it=False)
