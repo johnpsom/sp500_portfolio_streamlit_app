@@ -130,7 +130,8 @@ minimum_momentum = st.sidebar.slider(
 portfolio_size = st.sidebar.slider(
     'Maximum Portfolio Size No of stocks.', 5, 20, 5, 5)
 cutoff = st.sidebar.slider(
-    'Minimum weight of a stock in our portfolio.', 0.01, 0.15, 0.10, 0.05)
+    'Minimum weight of a stock in our portfolio.', 1, 15, 10, 1)
+cutoff/=100.0
 history_bt = st.sidebar.slider(
     'Days of backtesting our Portfolio (Υ days).', 100, 400, 200, 100)
 added_value = st.sidebar.slider(
