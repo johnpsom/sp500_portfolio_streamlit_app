@@ -278,7 +278,7 @@ def backtest_portfolio(prices_df, bt_dataset=800, lookback_days=700, momentum_wi
     pval = pd.DataFrame(columns=['Date', 'portvalue', 'porteff'])
     # boolean to see if we have an optimized portfolio during a trading period
     keep_df_buy = True
-    for days in range(bt_dataset, len(prices_df), tr_period):
+    for days in range(bt_dataset, len(prices_df)+1, tr_period):
         # sliced dataset for the trading period
         df_tr = prices_df.iloc[days-lookback_days:days, :]
         df_date = datetime.strftime(prices_df.iloc[days, :].name, '%d-%m-%Y')
@@ -367,7 +367,7 @@ def backtest_portfolio2(prices_df, bt_dataset=800, lookback_days=700, momentum_w
     pval = pd.DataFrame(columns=['Date', 'portvalue', 'porteff'])
     # boolean to see if we have an optimized portfolio during a trading period
     keep_df_buy = True
-    for days in range(bt_dataset, len(prices_df), tr_period):
+    for days in range(bt_dataset, len(prices_df)+1, tr_period):
         # sliced dataset for the trading period
         df_tr = prices_df.iloc[days-lookback_days:days, :]
         df_date = datetime.strftime(prices_df.iloc[days, :].name, '%d-%m-%Y')
