@@ -124,7 +124,7 @@ st.sidebar.write('Portfolio Parameters')
 port_value = st.sidebar.slider(
     'Initial Capital to invest $', 10000, 100000, 50000, 5000)
 momentum_window = st.sidebar.slider(
-    'Number of days to use to calculate our momentum indicator.', 90, 510, 150, 30)
+    'Number of days to use to calculate our momentum indicator.', 90, 510, 150, 10)
 minimum_momentum = st.sidebar.slider(
     'Minimum value of the momentum indicator so that a stock can be included in our portfolio.', 70, 180, 160, 10)
 portfolio_size = st.sidebar.slider(
